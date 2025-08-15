@@ -1,11 +1,46 @@
 from collections import deque
 
-queue=deque()
-queue.append('a')
-queue.append('b')
-queue.append('c')
-print(f'Queue is {queue}')
-for i in range(len(queue)):
-    print(f'Queue elements are {queue.popleft()}')
+class SimpleQueue:
+    def __init__(self):
+        self.queue = deque()
 
-print(f'After removing all elements:{queue}')
+    def enqueue(self, item):
+        """Add item to the rear of the queue (O(1))."""
+        self.queue.append(item)
+
+    def dequeue(self):
+        """Remove and return item from the front of the queue (O(1))."""
+        if self.is_empty():
+            return "Queue is empty!"
+        return self.queue.popleft()
+
+    def peek(self):
+        """View front item without removing it."""
+        if self.is_empty():
+            return "Queue is empty!"
+        return self.queue[0]
+
+    def is_empty(self):
+        """Check if queue is empty."""
+        return len(self.queue) == 0
+
+    def size(self):
+        """Return number of items in the queue."""
+        return len(self.queue)
+
+    def display(self):
+        """Print the queue from front to rear."""
+        print("Queue:", list(self.queue))
+
+
+# Example usage:
+q = SimpleQueue()
+q.enqueue("A")
+q.enqueue("B")
+q.enqueue("C")
+q.display()
+
+print("Dequeued:", q.dequeue())
+q.display()
+
+print("Front item:", q.peek())
