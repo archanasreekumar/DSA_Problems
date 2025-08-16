@@ -10,7 +10,7 @@
 # Explanation: In this case, no transactions are done and the max profit = 0.
 
 
-def max_profit(prices):
+def get_max_profit(prices):
     n = len(prices)
     max_profit = 0
 
@@ -23,4 +23,4 @@ def max_profit(prices):
 
 prices = [7, 1, 5, 3, 6, 4]
 # prices = [7,6,4,3,1]
-print(max_profit(prices))
+print(get_max_profit(prices))
